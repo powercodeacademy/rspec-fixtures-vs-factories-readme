@@ -17,12 +17,14 @@ RSpec.describe Volunteer, type: :model do
       volunteer = create(:volunteer)
       shift1 = create(:shift)
       shift2 = create(:shift)
-      volunteer.shifts << [shift1, shift2]
+      volunteer.shifts << [ shift1, shift2 ]
       expect(volunteer.shifts.count).to eq(2)
     end
 
-    it 'can use a trait (pending)' do
-      skip('Try adding a trait to the volunteer factory')
+    it 'can use a trait' do
+      # skip('Try adding a trait to the volunteer factory')
+      volunteer = create(:volunteer, :manager)
+      expect(volunteer.role).to eq("manager")
     end
   end
 
